@@ -1,6 +1,6 @@
 import random
 
-
+GamaEnd=False
 numbanco1 = random.randint(1,13)
 if(numbanco1>10):
    numbanco1=10
@@ -35,7 +35,7 @@ else:
    somma = numgiocatore1+numgiocatore2
 print(somma)
 controllo = ""
-while (controllo!="lascia"):
+while controllo!="lascia":
    controllo = input("Cosa vuoi fare: Pesca o Lascia").lower()
    if controllo=="pesca":
        pesca = random.randint(1,13)
@@ -50,8 +50,22 @@ while (controllo!="lascia"):
            controllo="lascia"
 if somma>21:
    print("Hai perso")
+   GamaEnd=True
 else:
    print(f"Carta 2 banco: {numbanco2}\n")
    sommabanco=numbanco1+numbanco2
    print(sommabanco)
-   if(sommabanco<17)
+   if sommabanco<17:
+      if ibanco>=1:
+         sommabanco-=10
+      else:
+         if sommabanco>21:
+            print("Hai VINTO")
+         else:
+            if somma>sommabanco:
+               print("Hai VINTO")
+            elif somma==sommabanco:
+               print("Pareggio")
+            else:
+               print("Hai Perso")
+         GamaEnd=True
