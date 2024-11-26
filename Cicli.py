@@ -3,7 +3,7 @@ import random
 import time
 
 print("Esercizio cicli(while,for)")
-print("RANDOMLE\ntrovail numero generato random da 1 a 100")
+print("RANDOMLE\ntrova il numero generato random da 1 a 100")
 win=False
 numran=random.randint(1,100)
 while not win: 
