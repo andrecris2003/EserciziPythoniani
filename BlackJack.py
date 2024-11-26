@@ -24,13 +24,9 @@ print(f"Carta 2 giocatore: {numgiocatore2}\n")
 print(f"Carta 1 banco: {sommabanco}\n")
 i=0
 somma=0
-if numgiocatore1==1:
-   i+=1
-if numgiocatore2==1:
-   i+=1
 if (numgiocatore1==1 or numgiocatore2==1) and (numgiocatore1+numgiocatore2<=11):
    somma=numgiocatore1+numgiocatore2+10
-   i-=1
+   i+=1
 else:
    somma = numgiocatore1+numgiocatore2
 print(somma)
@@ -38,16 +34,17 @@ controllo = ""
 while controllo!="lascia":
    controllo = input("Cosa vuoi fare: Pesca o Lascia").lower()
    if controllo=="pesca":
-       pesca = random.randint(1,13)
-       if pesca==1:
-           i+=1
-       if (pesca+somma)<11:
+      pesca = random.randint(1,13)
+      if (pesca+somma)<11 and (pesca==1):
            somma=pesca+somma+10
-           i-=1
-       else:
-           somma=pesca+somma
-       if somma>=21:
-           controllo="lascia"
+           i+=1
+      else:
+         if (somma+pesca>21) and (i>0):
+            somma=somma+pesca-10
+         else:
+               somma=pesca+somma
+      if somma>=21:
+         controllo="lascia"
 if somma>21:
    print("Hai perso")
    GamaEnd=True
