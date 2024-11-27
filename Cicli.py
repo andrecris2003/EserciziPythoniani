@@ -28,3 +28,4 @@ for i in range(0,y+1):
     print(f"Chiusura del programma in {int(y/60)} min e {y%60} sec...")
     y-=1
     time.sleep(1)
+print("Programma chiuso.")
